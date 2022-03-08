@@ -1,2 +1,31 @@
 To install the package required for our project we use
 python -m pip install -r requirements.txt
+Download bootstrap5 and name it "bootstrap5" and save it to a the folder static
+-> within templats -> create layout directory -> create base.html
+The code within base.html:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %} - Aerolinea SA de CV</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap5/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="header">
+      El menu va ir aca
+    </div>
+    <div class="contenido">
+      {% block contenido %}
+      {% endblock contenido %}
+    </div>
+    <div class="footer">
+      <br>
+      &copy: Copyright 2022 by <a href="#"> You </a>
+    </div>
+    <script src="{{ url_for('static', filename='bootstrap5/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
